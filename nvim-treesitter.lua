@@ -1,0 +1,21 @@
+-- return {
+--     "nvim-treesitter/nvim-treesitter",
+--     ---@param opts cmp.ConfigSchema
+--     opts = {
+--       ensure_installed = {
+--         "html",
+--         "javascript",
+--         "json",
+--         "lua",
+--         "markdown",
+--         "markdown_inline",
+--         "php",
+--         "query",
+--         "regex",
+--         "tsx",
+--         "typescript",
+--         "vim",
+--         "yaml",
+--       },
+--     },
+--   }
