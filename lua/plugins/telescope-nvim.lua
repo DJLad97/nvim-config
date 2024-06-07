@@ -1,40 +1,3 @@
-local pickers = require "telescope.pickers"
-local finders = require "telescope.finders"
-local make_entry = require "telescope.make_entry"
-
-local enhance_find_files = function(opts)
-    local results = {}  -- telescope oldfiles results
-    pickers
-        .new(opts, {
-            prompt_title = "OOOOOOOO",
-            finder = finders.new_table {
-                results = results,
-                entry_maker = opts.entry_maker or make_entry.gen_from_file(opts),
-            },
-            sorter = conf.file_sorter(opts),
-            previewer = conf.file_previewer(opts),
-            on_input_filter_cb = function(prompt)
-                local is_empty = prompt == nil or prompt == ""
-
-                if is_empty then
-                    return {
-                        prompt = prompt,
-                        updated_finder = finders.new_table {
-                            results = results,
-                            entry_maker = opts.entry_maker or make_entry.gen_from_file(opts),
-                        },
-                    }
-                end
-
-                --  use telescope built-in find_files.
-                return {
-                    prompt = prompt,
-                    updated_finder = finders.new_oneshot_job(find_command, opts),
-                }
-            end,
-        })
-        :find()
-end
 
 return {
     'nvim-telescope/telescope.nvim',
@@ -56,7 +19,8 @@ return {
 				"composer.json",
 				"composer.lock",
 				"yarn.lock" ,
-				"vendor%-src/.*"
+				"vendor%-src/.*",
+				"%_ide%_helper.php",
 			},
 			path_display = { truncate = 5 },
         },
