@@ -10,7 +10,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 
 -- Auto commands for Go files
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = "go",
+  pattern = {"go", "astro"},
   callback = function()
     -- Set tab width to 4 spaces
     vim.opt_local.shiftwidth = 4
