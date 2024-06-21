@@ -39,10 +39,6 @@ return {
         end
       end, { "i", "s" }),
     })
-    opts.sources = cmp.config.sources({
-      { name = 'nvim_lsp', max_item_count = 15 },
-      { name = "buffer", max_item_count = 15 }, -- make sure completions from buffer don't overwhelm other sources
-    })
     opts.sorting = {
       priority_weight = 2, -- Give LSP-related completions higher priority
       comparators = {
