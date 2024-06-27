@@ -19,6 +19,9 @@ vim.api.nvim_set_keymap('n', '<leader>sgv', "<cmd>lua require('telescope.builtin
     { noremap = true, silent = true, desc = "Search in Vue files" }
 )
 
+vim.api.nvim_set_keymap('n', '<leader>sgj', "<cmd>lua require('telescope.builtin').live_grep({ glob_pattern = '*.js' })<CR>",
+    { noremap = true, silent = true, desc = "Search in JavaScript files" }
+)
 -- Live grep .vue files
 vim.api.nvim_set_keymap('n', '<leader>sgg', "<cmd>lua require('telescope.builtin').live_grep()<CR>",
     { noremap = true, silent = true, desc = "Search in all files" }
@@ -53,3 +56,5 @@ end
 -- Create a mapping to call the function with a user-specified direction and number of lines
 vim.api.nvim_set_keymap('n', '<leader>ck', ':lua CommentRelative("up", vim.fn.input("Number of lines above to comment: "))<CR>', { noremap = true, silent = true, desc ='Comment nth line above current cursor' })
 vim.api.nvim_set_keymap('n', '<leader>cj', ':lua CommentRelative("down", vim.fn.input("Number of lines below to comment: "))<CR>', { noremap = true, silent = true, desc ='Comment nth line below current cursor' })
+
+vim.keymap.set({"n", "v"}, "dd", [["_dd]])
